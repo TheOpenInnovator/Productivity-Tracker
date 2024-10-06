@@ -128,7 +128,7 @@ This project is licensed under the MIT License. See the LICENSE file for more de
 ## Contact
 
 For any inquiries, suggestions, or feedback:
-- **Email**: web3.rajeev@gmail.com
+-
 - **GitHub**: (https://github.com/TheOpenInnovator/Productivity-Tracker)
 
 ---
