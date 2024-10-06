@@ -1,0 +1,231 @@
+:root {
+    --color-darkblue: #2C3E50;
+    --color-lightgray: #ECF0F1;
+    --color-red: #E74C3C;
+    --color-blue: #3498DB;
+    --color-green: #2ECC71;
+    --color-orange: #F39C12;
+    --color-darkorange: #D35400;
+    --color-purple: #8E44AD;
+    --color-darkblue2: #2980B9;
+    --color-darkred: #C0392B;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-lightgray);
+    color: var(--color-darkblue);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1, h2 {
+    color: var(--color-darkblue);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.section {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+}
+
+.section:hover {
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+button {
+    background-color: var(--color-blue);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: var(--color-darkblue2);
+}
+
+input[type="text"], input[type="url"], select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid var(--color-darkblue);
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Clock styles */
+#clock {
+    font-size: 2em;
+    text-align: center;
+    padding: 20px;
+    background-color: var(--color-darkblue);
+    color: var(--color-lightgray);
+    border-radius: 8px;
+}
+
+/* Checklist styles */
+#task-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#task-list li {
+    background-color: var(--color-lightgray);
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#task-list li.completed .task-text {
+    text-decoration: line-through;
+    color: var(--color-darkblue2);
+}
+
+#task-list button {
+    margin-left: 5px;
+    padding: 5px 10px;
+    font-size: 0.8em;
+}
+
+/* Timer styles */
+#timer-display {
+    font-size: 2em;
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* Daily Log styles */
+#daily-log-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: var(--color-lightgray);
+    border-radius: 4px;
+}
+
+.timeline-time {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* Links styles */
+#link-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#link-list li {
+    margin-bottom: 10px;
+}
+
+#link-list a {
+    color: var(--color-blue);
+    text-decoration: none;
+}
+
+#link-list a:hover {
+    text-decoration: underline;
+}
+
+/* Dark theme */
+.dark-theme {
+    background-color: var(--color-darkblue);
+    color: var(--color-lightgray);
+}
+
+.dark-theme .section {
+    background-color: var(--color-darkblue2);
+    color: var(--color-lightgray);
+}
+
+.dark-theme h1, .dark-theme h2 {
+    color: var(--color-lightgray);
+}
+
+.dark-theme input[type="text"], .dark-theme input[type="url"], .dark-theme select, .dark-theme textarea {
+    background-color: var(--color-darkblue);
+    color: var(--color-lightgray);
+    border-color: var(--color-lightgray);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    #clock {
+        font-size: 1.5em;
+    }
+
+    #timer-display {
+        font-size: 1.5em;
+    }
+}
+
+/* Task Report styles */
+#task-reports {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.task-report {
+    width: calc(50% - 10px);
+    margin-bottom: 20px;
+}
+
+/* Additional styles for new features */
+#pomodoro-timer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#pomodoro-display {
+    font-size: 2em;
+    margin: 10px 0;
+}
+
+#productivity-score {
+    text-align: center;
+    font-size: 1.2em;
+    margin-top: 20px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 20px;
+    background-color: var(--color-lightgray);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background-color: var(--color-green);
+    transition: width 0.3s;
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Productivity Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    
+
+</head>
+<body>
+    <div class="container">
+        <h1>Daily Productivity Tracker</h1>
+        
+        <div id="clock" class="section">
+            <h2>Clock</h2>
+            <div id="current-time"></div>
+        </div>
+
+        <div id="checklist" class="section">
+            <h2>Checklist</h2>
+            <input type="text" id="new-task" placeholder="Add a new task">
+            <input type="text" id="task-category" placeholder="Task category (optional)">
+            <button id="add-task">Add Task</button>
+            <select id="category-dropdown"></select>
+            <button id="map-all">Map All</button>
+            <button id="custom-map">Custom Map</button>
+            <ul id="task-list"></ul>
+        </div>
+
+        <div id="timer" class="section">
+            <h2>Timer</h2>
+            <select id="timer-task-select"></select>
+            <button id="start-timer">Start</button>
+            <button id="pause-timer">Pause</button>
+            <button id="stop-timer">Stop</button>
+            <div id="timer-display">00:00:00</div>
+            <button id="map-timer-tasks">Map Tasks</button>
+            <div id="pomodoro-timer">
+                <h3>Pomodoro Timer</h3>
+                <div id="pomodoro-display">25:00</div>
+                <button id="start-pomodoro">Start Pomodoro</button>
+                <button id="reset-pomodoro">Reset</button>
+            </div>
+        </div>
+
+        <div id="daily-log" class="section">
+            <h2>Daily Log</h2>
+            <button id="map-log-tasks">Map Tasks</button>
+            <input type="text" id="new-log-task" placeholder="Add a new task">
+            <input type="time" id="log-start-time">
+            <input type="time" id="log-end-time">
+            <button id="add-log-task">Add to Log</button>
+            <div id="daily-log-timeline"></div>
+        </div>
+
+        <div id="links" class="section">
+            <h2>Links to Visit Daily</h2>
+            <div id="link-inputs"></div>
+            <button id="add-link">Add Link</button>
+            <button id="add-more-link">Add More</button>
+            <ul id="link-list"></ul>
+            <button id="copy-links-tomorrow">Copy to Tomorrow</button>
+            <button id="copy-links-week">Copy to Week</button>
+            <button id="copy-links-next-week">Copy to Next Week</button>
+        </div>
+
+        <div id="daily-learnings" class="section">
+            <h2>Daily Learnings</h2>
+            <textarea id="learning-input" rows="2" placeholder="What did you learn today?"></textarea>
+            <button id="save-learning">Save</button>
+            <button id="view-learnings">My Learnings</button>
+        </div>
+
+        <div id="task-reports" class="section">
+            <div class="task-report">
+                <h2>Task Report 1</h2>
+                <div id="task-completion-chart"></div>
+            </div>
+            <div class="task-report">
+                <h2>Task Report 2</h2>
+                <div id="time-spent-chart"></div>
+            </div>
+        </div>
+
+        <div id="productivity-score" class="section">
+            <h2>Productivity Score</h2>
+            <div class="progress-bar">
+                <div class="progress" style="width: 0%;"></div>
+            </div>
+            <p>Your productivity score: <span id="score">0</span>%</p>
+        </div>
+
+        <button id="toggle-theme">Toggle Dark Theme</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
