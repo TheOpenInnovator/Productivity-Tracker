@@ -317,6 +317,22 @@ textarea:focus {
     background: var(--color-gradient-dark);
 }
 
+.dark-theme #task-list li {
+    background-color: var(--color-darkblue2);
+    color: var(--color-lightgray);
+}
+
+#task-list li {
+    padding: 5px;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.dark-theme #task-list li:hover {
+    background-color: var(--color-blue);
+    color: white;
+}
+
 .dark-theme input[type="text"],
 .dark-theme input[type="url"],
 .dark-theme select,
