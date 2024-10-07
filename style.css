@@ -318,8 +318,8 @@ textarea:focus {
 }
 
 .dark-theme #task-list li {
-    background-color: var(--color-darkblue2);
-    color: var(--color-lightgray);
+    background-color: lightblue;
+    color: black;
 }
 
 #task-list li {
