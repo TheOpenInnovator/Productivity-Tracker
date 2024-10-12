@@ -1,18 +1,27 @@
  // Clock functionality
  function updateClock() {
     const now = new Date();
-    const options = {
+    const optionsDate = {
         timeZone: 'Asia/Kolkata',
-        hour12: false,
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
         day: '2-digit',
         month: 'short',
         year: 'numeric'
     };
-    document.getElementById('current-time').textContent = now.toLocaleString('en-IN', options);
+    
+    const optionsTime = {
+        timeZone: 'Asia/Kolkata',
+        hour12: false,
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+    };
+    
+    const datePart = now.toLocaleDateString('en-IN', optionsDate);
+    const timePart = now.toLocaleTimeString('en-IN', optionsTime);
+    
+    document.getElementById('current-time').textContent = `${datePart} - ${timePart}`;
 }
+
 
 setInterval(updateClock, 1000);
 updateClock();

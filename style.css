@@ -136,6 +136,8 @@ textarea:focus {
 #task-list {
     list-style-type: none;
     padding: 0;
+    max-height: 20rem;
+    overflow-y: scroll;
 }
 
 #task-list li {
@@ -358,14 +360,22 @@ textarea:focus {
     font-size: 0.9rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1030px) {
     .container {
-        padding: 20px;
+        padding: 1rem;
+    }
+
+    h1{
+        font-size: 1.7rem;
+    }
+
+    h2{
+        font-size: 1.6rem;
     }
 
     #clock {
-        font-size: 2.5em;
-        padding: 30px;
+        font-size: 1.5rem;
+        padding: 2rem;
     }
 
     #timer-display,
