@@ -23,7 +23,7 @@
 body {
       font-family: "Inter", sans-serif;
     margin: 0;
-    padding: 0;
+    padding: 1rem;
     background: var(--color-lightgray);
     color: var(--color-darkblue);
     transition: background-color 0.3s, color 0.3s;
@@ -57,7 +57,7 @@ h2::after {
     display: block;
     width: 50px;
     height: 3px;
-    background: var(--color-gradient);
+    background: var(--blue-gradient-dark);
     margin: 15px auto 0;
 }
 
@@ -91,32 +91,36 @@ button {
     letter-spacing: 1px;
 }
 
+h3{
+    font-size: 1.5rem;
+}
+
 button:hover {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     background-color: var(--blue-gradient);
 }
 
-#add-task,#start-pomodoro,#map-all,#start-timer,#add-log-task,#add-link,#add-more-link,#save-learning{
+#add-task,#start-pomodoro,#map-all,#start-timer,#add-log-task,#add-link,#add-more-link,#save-learning,.complete-task{
     background: var(--green-gradient-dark);
 }
 
-#add-task:hover,#start-pomodoro:hover,#map-all:hover,#start-timer:hover,#add-log-task:hover,#add-link:hover,#add-more-link:hover,#save-learning:hover{
+#add-task:hover,#start-pomodoro:hover,#map-all:hover,#start-timer:hover,#add-log-task:hover,#add-link:hover,#add-more-link:hover,#save-learning:hover,.complete-task:hover{
     background: var(--green-gradient);
 }
 
-#pause-timer,#custom-map,#map-timer-tasks,#map-log-tasks,#copy-links-tomorrow,#copy-links-week,#copy-links-next-week,#view-learnings{
+#pause-timer,#custom-map,#map-timer-tasks,#map-log-tasks,#copy-links-tomorrow,#copy-links-week,#copy-links-next-week,#view-learnings,.edit-task{
     background: var(--blue-gradient-dark);
 }
 
-#pause-timer:hover,#custom-map:hover,#map-timer-tasks:hover,#map-log-tasks:hover,#copy-links-tomorrow:hover,#copy-links-week:hover,#copy-links-next-week:hover,#view-learnings:hover{
+#pause-timer:hover,#custom-map:hover,#map-timer-tasks:hover,#map-log-tasks:hover,#copy-links-tomorrow:hover,#copy-links-week:hover,#copy-links-next-week:hover,#view-learnings:hover,.edit-task:hover{
     background: var(--blue-gradient);
 }
 
-#stop-timer,#reset-pomodoro{
+#stop-timer,#reset-pomodoro,.delete-task{
     background: var(--red-gradient-dark);
 }
 
-#stop-timer:hover,#reset-pomodoro:hover{
+#stop-timer:hover,#reset-pomodoro:hover,.delete-task:hover{
     background: var(--red-gradient);
 }
 
@@ -128,30 +132,16 @@ textarea {
     width: 100%;
     padding: 15px;
     margin-bottom: 20px;
-    border: 2px solid var(--color-darkblue);
     border-radius: var(--border-radius);
     box-sizing: border-box;
     font-size: 1rem;
     background-color: var(--color-lightgray);
-    color: var(--color-darkblue);
     transition: all 0.3s ease;
-}
-
-input[type="text"]:focus,
-input[type="url"]:focus,
-input[type="time"]:focus,
-select:focus,
-textarea:focus {
-    border-color: var(--color-blue);
-    background-color: #FFF;
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(69, 123, 157, 0.1);
 }
 
 #clock {
     font-size: 3em;
     text-align: center;
-    padding: 50px;
     background: var(--blue-gradient-dark);
     color: white;
     border-radius: var(--border-radius);
@@ -169,31 +159,43 @@ textarea:focus {
 
 #task-list {
     list-style-type: none;
-    padding: 0;
+    padding: 0.1rem;
     max-height: 20rem;
     overflow-y: scroll;
+    
 }
 
 #task-list li {
-    background-color: white;
+    background-color: var(--color-lightgray);
     margin-bottom: 15px;
     padding: 20px;
     border-radius: var(--border-radius);
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     transition: all 0.3s ease;
     box-shadow: var(--box-shadow);
-    border-left: 5px solid var(--color-blue);
+    border-left: 5px solid var(--color-darkblue);
+}
+
+.toggle-category{
+    background: var(--green-gradient-dark);
+}
+.toggle-category:hover{
+    background: var(--green-gradient);
+}
+.toggle-category:active{
+    background: var(--red-gradient-dark);
 }
 
 #task-list li:hover {
-    background-color: var(--color-green);
+    background-color: rgb(228, 228, 228);
     color: var(--color-darkblue);
 }
 
 #task-list li.completed {
-    border-left-color: var(--color-green);
+    border-left-color: var(--green-gradient-dark);
 }
 
 #task-list li.completed .task-text {
@@ -238,12 +240,12 @@ textarea:focus {
     transition: all 0.3s ease;
     box-shadow: var(--box-shadow);
     margin-bottom: 15px;
-    border-left: 5px solid var(--color-purple);
+    border-left: 5px solid var(--color-darkblue);
 }
 
 .timeline-item:hover {
-    background-color: var(--color-purple);
-    color: white;
+    background-color: rgb(228, 228, 228);
+    color: var(--color-darkblue);
 }
 
 #links {
@@ -267,22 +269,19 @@ textarea:focus {
     padding: 15px;
     border-radius: var(--border-radius);
     transition: all 0.3s ease;
+    
 }
 
 #link-list li:hover {
-    background-color: var(--color-blue);
+    background-color: rgb(228, 228, 228);
 }
 
 #link-list a {
-    color: var(--color-blue);
+    color: var(--color-darkblue);
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s ease;
     display: block;
-}
-
-#link-list li:hover a {
-    color: white;
 }
 
 #task-reports {
@@ -314,7 +313,7 @@ textarea:focus {
 .progress-bar {
     width: 100%;
     height: 25px;
-    background-color: var(--color-darkblue2);
+    background: var(--green-gradient-dark);
     border-radius: 15px;
     overflow: hidden;
     margin-top: 15px;
@@ -323,20 +322,23 @@ textarea:focus {
 
 .progress {
     height: 100%;
-    background: var(--color-gradient);
+    background: var(--green-gradient-dark);
     transition: width 0.4s ease;
 }
 
 .dark-theme {
-    background-color: var(--color-darkblue);
+    background-color: black;
     color: var(--color-lightgray);
 }
 
 .dark-theme .section {
-    background-color: var(--color-darkblue2);
+    background-color: rgb(59, 59, 59);
     color: var(--color-lightgray);
 }
 
+.dark-theme .timeline-item{
+    color: black;
+}
 .dark-theme h1,
 .dark-theme h2 {
     color: var(--color-lightgray);
@@ -350,37 +352,13 @@ textarea:focus {
     background: var(--color-gradient-dark);
 }
 
-.dark-theme #task-list li {
-    background-color: lightblue;
-    color: black;
-}
 
-#task-list li {
+
+.dark-theme #task-list li {
     padding: 5px;
     font-size: 0.9rem;
     margin-bottom: 5px;
-}
-
-.dark-theme #task-list li:hover {
-    background-color: var(--color-blue);
-    color: white;
-}
-
-.dark-theme input[type="text"],
-.dark-theme input[type="url"],
-.dark-theme select,
-.dark-theme textarea {
-    background-color: var(--color-darkblue);
-    color: var(--color-lightgray);
-    border-color: var(--color-lightgray);
-}
-
-.dark-theme button {
-    background: var(--color-gradient-dark);
-}
-
-.dark-theme button:hover {
-    background: var(--color-gradient);
+    color: black;
 }
 
 #toggle-theme {
@@ -389,6 +367,11 @@ textarea:focus {
     right: 20px;
     padding: 10px 15px;
     font-size: 0.9rem;
+    background: var(--blue-gradient);
+}
+
+#toggle-theme:hover{
+    background: var(--color-gradient-dark);
 }
 
 @media (max-width: 1030px) {
@@ -416,6 +399,10 @@ textarea:focus {
 
     .task-report {
         width: 100%;
+    }
+
+    #task-list {
+        max-height: 20rem;
     }
 
     button {

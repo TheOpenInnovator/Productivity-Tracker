@@ -65,11 +65,14 @@ function renderTask(task) {
     const li = document.createElement('li');
     li.innerHTML = `
         <span class="task-text">${task.text}</span>
-        <span class="task-category" style="display: none;">${task.category}</span>
-        <button class="complete-task">✓</button>
-        <button class="edit-task">Edit</button>
-        <button class="delete-task">Delete</button>
-        <button class="toggle-category">👁️</button>
+        <span class="task-category">${task.category}</span>
+        <div class="task-control">
+            <button class="complete-task">✓</button>
+            <button class="edit-task">Edit</button>
+            <button class="delete-task">Delete</button>
+            <button class="toggle-category">👁️</button>
+        </div>
+
     `;
     taskList.appendChild(li);
 
