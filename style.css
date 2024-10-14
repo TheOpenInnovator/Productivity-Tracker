@@ -451,3 +451,40 @@ textarea {
 #pomodoro-display {
     animation: pulse 2s infinite;
 }
+
+.back-to-top {
+    position: fixed;
+    bottom: 50px;
+    right: 25px;
+    background: var(--color-gradient);
+    color: white;
+    border: none;
+    padding: 16px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    display: none; /* Hidden by default */
+    z-index: 1000;
+    transition: opacity 1.3s ease, background-color 0.3s ease;
+}
+
+.back-to-top i {
+    margin: 0;
+    padding: 16px;
+}
+
+.back-to-top:hover {
+    background-color: #0056b3;
+}
+
+@media screen and (max-width: 600px) {
+    .back-to-top {
+        bottom: 15px;
+        right: 5px;
+        font-size: 12px;
+        padding: 6px;
+    }
+    .back-to-top i {
+        padding: 10px;
+    }
+}
