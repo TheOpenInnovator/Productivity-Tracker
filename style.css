@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 :root {
     --color-darkblue: #1E2749;
     --color-lightgray: #F5F6FA;
@@ -7,14 +8,20 @@
     --color-orange: #F4A261;
     --color-purple: #6D6875;
     --color-darkblue2: #3A4750;
-    --color-gradient: linear-gradient(135deg, #A8DADC, #457B9D);
-    --color-gradient-dark: linear-gradient(135deg, #2B2D42, #6D6875);
+    --color-gradient: linear-gradient(135deg, #64a0a2, #265776);
+    --color-gradient-dark: linear-gradient(135deg, #222440, #473d59);
+    --green-gradient: linear-gradient(90deg, hsla(165, 60%, 11%, 1) 0%, hsla(149, 54%, 31%, 1) 100%);
+    --green-gradient-dark: linear-gradient(90deg, hsla(0, 0%, 5%, 1) 0%, hsla(126, 82%, 33%, 1) 100%);
+    --red-gradient-dark: linear-gradient(90deg, hsla(296, 100%, 6%, 1) 0%, hsla(5, 90%, 24%, 1) 100%);
+    --red-gradient: linear-gradient(90deg, rgb(113, 46, 26) 0%,rgb(175, 24, 34)  100%);
+    --blue-gradient: linear-gradient(90deg, hsla(239, 94%, 14%, 1) 0%, hsla(190, 68%, 50%, 1) 100%);
+    --blue-gradient-dark: linear-gradient(90deg, hsla(236, 100%, 8%, 1) 0%, hsla(211, 100%, 28%, 1) 100%);
     --border-radius: 20px;
     --box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+      font-family: "Inter", sans-serif;
     margin: 0;
     padding: 0;
     background: var(--color-lightgray);
@@ -41,6 +48,7 @@ h2 {
     text-transform: uppercase;
     font-size: 2rem;
     position: relative;
+    font-family: "Poppins", sans-serif;
 }
 
 h1::after,
@@ -64,13 +72,12 @@ h2::after {
 }
 
 .section:hover {
-    transform: translateY(-5px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
 button {
-    background: var(--color-gradient);
     color: white;
+    background-color: var(--blue-gradient-dark);
     border: none;
     padding: 12px 25px;
     border-radius: 50px;
@@ -85,9 +92,32 @@ button {
 }
 
 button:hover {
-    background: var(--color-gradient-dark);
-    transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    background-color: var(--blue-gradient);
+}
+
+#add-task,#start-pomodoro,#map-all,#start-timer,#add-log-task,#add-link,#add-more-link,#save-learning{
+    background: var(--green-gradient-dark);
+}
+
+#add-task:hover,#start-pomodoro:hover,#map-all:hover,#start-timer:hover,#add-log-task:hover,#add-link:hover,#add-more-link:hover,#save-learning:hover{
+    background: var(--green-gradient);
+}
+
+#pause-timer,#custom-map,#map-timer-tasks,#map-log-tasks,#copy-links-tomorrow,#copy-links-week,#copy-links-next-week,#view-learnings{
+    background: var(--blue-gradient-dark);
+}
+
+#pause-timer:hover,#custom-map:hover,#map-timer-tasks:hover,#map-log-tasks:hover,#copy-links-tomorrow:hover,#copy-links-week:hover,#copy-links-next-week:hover,#view-learnings:hover{
+    background: var(--blue-gradient);
+}
+
+#stop-timer,#reset-pomodoro{
+    background: var(--red-gradient-dark);
+}
+
+#stop-timer:hover,#reset-pomodoro:hover{
+    background: var(--red-gradient);
 }
 
 input[type="text"],
@@ -122,11 +152,15 @@ textarea:focus {
     font-size: 3em;
     text-align: center;
     padding: 50px;
-    background: var(--color-gradient);
+    background: var(--blue-gradient-dark);
     color: white;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#clock h2{
+    color: white;
 }
 
 #checklist {
@@ -156,7 +190,6 @@ textarea:focus {
 #task-list li:hover {
     background-color: var(--color-green);
     color: var(--color-darkblue);
-    transform: translateX(5px);
 }
 
 #task-list li.completed {
@@ -211,7 +244,6 @@ textarea:focus {
 .timeline-item:hover {
     background-color: var(--color-purple);
     color: white;
-    transform: translateX(5px);
 }
 
 #links {
@@ -239,7 +271,6 @@ textarea:focus {
 
 #link-list li:hover {
     background-color: var(--color-blue);
-    transform: translateX(5px);
 }
 
 #link-list a {
