@@ -211,7 +211,7 @@ textarea {
     font-size: 3em;
     text-align: center;
     margin: 30px 0;
-    color: var(--color-red);
+    color: red;
     font-weight: 700;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -225,7 +225,7 @@ textarea {
 
 #pomodoro-display {
     font-size: 3em;
-    color: var(--color-orange);
+    color: orangered;
     margin: 20px 0;
     font-weight: 700;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
@@ -327,12 +327,12 @@ textarea {
 }
 
 .dark-theme {
-    background-color: black;
+    background: linear-gradient(to right, #000000 0%, rgb(6, 0, 22) 100%);
     color: var(--color-lightgray);
 }
 
 .dark-theme .section {
-    background-color: rgb(59, 59, 59);
+    background-color: rgb(28, 28, 28);
     color: var(--color-lightgray);
 }
 
@@ -447,10 +447,6 @@ textarea {
     }
 }
 
-#timer-display,
-#pomodoro-display {
-    animation: pulse 2s infinite;
-}
 
 .back-to-top {
     position: fixed;
