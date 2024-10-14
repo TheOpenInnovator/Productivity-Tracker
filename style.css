@@ -159,7 +159,7 @@ textarea {
 
 #task-list {
     list-style-type: none;
-    padding: 0.1rem;
+    padding: 0.15rem;
     max-height: 20rem;
     overflow-y: scroll;
     
