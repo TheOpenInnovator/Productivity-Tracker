@@ -486,6 +486,10 @@ textarea {
   color: var(--color-lightgray);
 }
 
+.dark-theme .modal-content{
+    background-color: #000000e3;
+}
+
 .dark-theme .timeline-item {
   color: black;
 }
