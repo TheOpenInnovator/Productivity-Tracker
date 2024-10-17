@@ -358,13 +358,38 @@ textarea {
   text-align: center;
 }
 
+.timer-input-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+#new-timer-task {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
 #timer-display {
   font-size: 3em;
   text-align: center;
   margin: 30px 0;
-  color: red;
+  color: var(--color-darkblue);
   font-weight: 700;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+#timer-display.active {
+  color: var(--color-red);
+  animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
 }
 
 #pomodoro-timer {
@@ -372,7 +397,7 @@ textarea {
   margin-top: 40px;
   padding-top: 30px;
   border-top: 2px solid var(--color-lightgray);
-}
+}timer 
 
 #pomodoro-display {
   font-size: 3em;
@@ -634,4 +659,12 @@ textarea {
   .back-to-top i {
     padding: 10px;
   }
+}
+
+#add-timer-task {
+  background: var(--green-gradient-dark);
+}
+
+#add-timer-task:hover {
+  background: var(--green-gradient);
 }

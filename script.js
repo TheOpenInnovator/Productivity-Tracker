@@ -211,6 +211,7 @@ function updateProductivityScore() {
 // Timer functionality
 let timerInterval;
 let timerStartTime;
+let timerTasks = [];
 
 function formatTime(seconds) {
   const hours = String(Math.floor(seconds / 3600)).padStart(2, "0");
@@ -219,26 +220,56 @@ function formatTime(seconds) {
   return `${hours}:${minutes}:${secs}`;
 }
 
+function updateTimerTaskSelect() {
+  const timerTaskSelect = document.getElementById("timer-task-select");
+  timerTaskSelect.innerHTML = "";
+  timerTasks.forEach((task) => {
+    const option = document.createElement("option");
+    option.value = task;
+    option.textContent = task;
+    timerTaskSelect.appendChild(option);
+  });
+}
+
+document.getElementById("add-timer-task").addEventListener("click", () => {
+  const newTimerTask = document.getElementById("new-timer-task").value.trim();
+  if (newTimerTask) {
+    timerTasks.push(newTimerTask);
+    updateTimerTaskSelect();
+    document.getElementById("new-timer-task").value = "";
+  }
+});
+
 document.getElementById("start-timer").addEventListener("click", () => {
   const timerTask = document.getElementById("timer-task-select").value;
   if (timerTask) {
     timerStartTime = Date.now();
-    timerInterval = setInterval(() => {
-      const elapsedSeconds = Math.floor((Date.now() - timerStartTime) / 1000);
-      document.getElementById("timer-display").textContent =
-        formatTime(elapsedSeconds);
-    }, 1000);
+    clearInterval(timerInterval);
+    timerInterval = setInterval(updateTimer, 1000);
+    document.getElementById("timer-display").classList.add("active");
   }
 });
 
 document.getElementById("pause-timer").addEventListener("click", () => {
   clearInterval(timerInterval);
+  document.getElementById("timer-display").classList.remove("active");
 });
 
 document.getElementById("stop-timer").addEventListener("click", () => {
   clearInterval(timerInterval);
   document.getElementById("timer-display").textContent = "00:00:00";
+  document.getElementById("timer-display").classList.remove("active");
 });
+
+function updateTimer() {
+  const elapsedSeconds = Math.floor((Date.now() - timerStartTime) / 1000);
+  document.getElementById("timer-display").textContent = formatTime(elapsedSeconds);
+}
+
+function mapTasksToTimer(tasks) {
+  timerTasks = [...new Set([...timerTasks, ...tasks.map(task => task.text)])];
+  updateTimerTaskSelect();
+}
 
 // Pomodoro Timer functionality
 let pomodoroInterval;
