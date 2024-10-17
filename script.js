@@ -1,3 +1,15 @@
+// Add this function at the beginning of the file
+function applyTheme() {
+  if (localStorage.getItem('darkMode') === 'true') {
+    document.body.classList.add('dark-theme');
+  } else {
+    document.body.classList.remove('dark-theme');
+  }
+}
+
+// Call this function when the page loads
+document.addEventListener('DOMContentLoaded', applyTheme);
+
 // Clock functionality
 function updateClock() {
   const now = new Date();
@@ -322,6 +334,7 @@ document.getElementById("view-learnings").addEventListener("click", () => {
 // Toggle Dark Theme functionality
 document.getElementById("toggle-theme").addEventListener("click", () => {
   document.body.classList.toggle("dark-theme");
+  localStorage.setItem('darkMode', document.body.classList.contains('dark-theme'));
 });
 
 // Task Reports functionality
