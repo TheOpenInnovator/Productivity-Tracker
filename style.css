@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 :root {
   --color-darkblue: #1e2749;
@@ -131,8 +132,7 @@ button:hover {
 #add-log-task,
 #add-link,
 #add-more-link,
-#save-learning,
-.complete-task {
+#save-learning {
   background: var(--green-gradient-dark);
 }
 
@@ -143,8 +143,7 @@ button:hover {
 #add-log-task:hover,
 #add-link:hover,
 #add-more-link:hover,
-#save-learning:hover,
-.complete-task:hover {
+#save-learning:hover {
   background: var(--green-gradient);
 }
 
@@ -155,8 +154,7 @@ button:hover {
 #copy-links-tomorrow,
 #copy-links-week,
 #copy-links-next-week,
-#view-learnings,
-.edit-task {
+#view-learnings{
   background: var(--blue-gradient-dark);
 }
 
@@ -167,20 +165,17 @@ button:hover {
 #copy-links-tomorrow:hover,
 #copy-links-week:hover,
 #copy-links-next-week:hover,
-#view-learnings:hover,
-.edit-task:hover {
+#view-learnings:hover {
   background: var(--blue-gradient);
 }
 
 #stop-timer,
-#reset-pomodoro,
-.delete-task {
+#reset-pomodoro {
   background: var(--red-gradient-dark);
 }
 
 #stop-timer:hover,
-#reset-pomodoro:hover,
-.delete-task:hover {
+#reset-pomodoro:hover {
   background: var(--red-gradient);
 }
 
@@ -227,39 +222,51 @@ textarea {
 #task-list li {
   background-color: var(--color-lightgray);
   margin-bottom: 15px;
-  padding: 20px;
+  padding: 16px 32px;
   border-radius: var(--border-radius);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   transition: all 0.3s ease;
-  box-shadow: var(--box-shadow);
-  border-left: 5px solid var(--color-darkblue);
 }
 
-.toggle-category {
-  background: var(--green-gradient-dark);
-}
-.toggle-category:hover {
-  background: var(--green-gradient);
-}
+
 .toggle-category:active {
-  background: var(--red-gradient-dark);
+  text-decoration: line-through;
 }
 
 #task-list li:hover {
   background-color: rgb(228, 228, 228);
   color: var(--color-darkblue);
+  cursor: pointer;
+}
+.complete-task,
+.edit-task,
+.delete-task,
+.toggle-category,
+.toggle-category{
+  color: black;
 }
 
-#task-list li.completed {
-  border-left-color: var(--green-gradient-dark);
+.complete-task:hover,
+.edit-task:hover,
+.delete-task:hover,
+.toggle-category:hover{
+  box-shadow: none;
+  text-decoration: underline;
 }
+
+#task-list .task-text {
+  font-size: 20px;
+  font-family: "Space Grotesk", serif;
+  font-weight: 600;
+}
+
 
 #task-list li.completed .task-text {
   text-decoration: line-through;
-  color: var(--color-darkblue2);
+  color: #888;
 }
 
 /* Modal container */
@@ -532,9 +539,9 @@ textarea {
 }
 
 .dark-theme #task-list li {
-  padding: 5px;
+  padding: 16px 32px;
   font-size: 0.9rem;
-  margin-bottom: 5px;
+  margin-bottom: 16px;
   color: black;
 }
 
