@@ -366,6 +366,10 @@ document.getElementById('toggle-theme').addEventListener('click', () => {
 //getting user prefernce of theme
 if(localStorage.getItem("theme")==="dark"){
   document.body.classList.add('dark-theme');
+  document.getElementById('toggle-theme').innerText = `Toggle Light Theme`
+}
+else{
+document.getElementById('toggle-theme').innerText = `Toggle Dark Theme`
 }
 
 
