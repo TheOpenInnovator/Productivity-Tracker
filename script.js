@@ -1,15 +1,3 @@
-// Add this function at the beginning of the file
-function applyTheme() {
-  if (localStorage.getItem('darkMode') === 'true') {
-    document.body.classList.add('dark-theme');
-  } else {
-    document.body.classList.remove('dark-theme');
-  }
-}
-
-// Call this function when the page loads
-document.addEventListener('DOMContentLoaded', applyTheme);
-
 // Clock functionality
 function updateClock() {
   const now = new Date();
@@ -363,10 +351,27 @@ document.getElementById("view-learnings").addEventListener("click", () => {
 });
 
 // Toggle Dark Theme functionality
-document.getElementById("toggle-theme").addEventListener("click", () => {
-  document.body.classList.toggle("dark-theme");
-  localStorage.setItem('darkMode', document.body.classList.contains('dark-theme'));
+document.getElementById('toggle-theme').addEventListener('click', () => {
+  document.body.classList.toggle('dark-theme');
+
+  if (document.body.classList.contains('dark-theme')) {
+      localStorage.setItem('theme', 'dark');
+      document.getElementById('toggle-theme').innerText = "Toggle Light Theme"
+  } else {
+      localStorage.setItem('theme', 'light');
+      document.getElementById('toggle-theme').innerText = "Toggle Dark Theme"
+  }
 });
+
+//getting user prefernce of theme
+if(localStorage.getItem("theme")==="dark"){
+  document.body.classList.add('dark-theme');
+  document.getElementById('toggle-theme').innerText = `Toggle Light Theme`
+}
+else{
+document.getElementById('toggle-theme').innerText = `Toggle Dark Theme`
+}
+
 
 // Task Reports functionality
 const taskCompletionChart = document.getElementById("task-completion-chart");
