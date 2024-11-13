@@ -1,31 +1,46 @@
-// Clock functionality
 function updateClock() {
+  const timezoneSelect = document.getElementById("timezone-select");
+  if (!timezoneSelect) return;  // If the timezone select element doesn't exist, exit the function
+
+  const timezone = timezoneSelect.value;   
   const now = new Date();
+
+  // Date options for the selected timezone
   const optionsDate = {
-    timeZone: "Asia/Kolkata",
+    timeZone: timezone,
     day: "2-digit",
     month: "short",
     year: "numeric",
   };
 
+  // Time options for the selected timezone
   const optionsTime = {
-    timeZone: "Asia/Kolkata",
-    hour12: false,
+    timeZone: timezone,
+    hour12: true,
     hour: "2-digit",
     minute: "2-digit",
     second: "2-digit",
   };
 
-  const datePart = now.toLocaleDateString("en-IN", optionsDate);
-  const timePart = now.toLocaleTimeString("en-IN", optionsTime);
+  try {
+    // Format date and time based on the selected timezone
+    const datePart = now.toLocaleDateString("en-US", optionsDate);
+    const timePart = now.toLocaleTimeString("en-US", optionsTime);
 
-  document.getElementById(
-    "current-time"
-  ).textContent = `${datePart} - ${timePart}`;
+    // Display the formatted date and time in the element
+    document.getElementById("current-time").textContent = `${datePart} - ${timePart}`;
+  } catch (error) {
+    // Handle any errors related to invalid timezone
+    console.error("Error formatting date/time for timezone:", timezone, error);
+    document.getElementById("current-time").textContent = "Invalid Timezone";
+  }
 }
 
-setInterval(updateClock, 1000);
-updateClock();
+ setInterval(updateClock, 1000);
+
+ document.getElementById("timezone-select").addEventListener("change", updateClock);
+
+ updateClock();
 
 // Checklist functionality
 const taskInput = document.getElementById("new-task");
@@ -251,11 +266,12 @@ document.getElementById("stop-timer").addEventListener("click", () => {
 
 function updateTimer() {
   const elapsedSeconds = Math.floor((Date.now() - timerStartTime) / 1000);
-  document.getElementById("timer-display").textContent = formatTime(elapsedSeconds);
+  document.getElementById("timer-display").textContent =
+    formatTime(elapsedSeconds);
 }
 
 function mapTasksToTimer(tasks) {
-  timerTasks = [...new Set([...timerTasks, ...tasks.map(task => task.text)])];
+  timerTasks = [...new Set([...timerTasks, ...tasks.map((task) => task.text)])];
   updateTimerTaskSelect();
 }
 
@@ -351,27 +367,25 @@ document.getElementById("view-learnings").addEventListener("click", () => {
 });
 
 // Toggle Dark Theme functionality
-document.getElementById('toggle-theme').addEventListener('click', () => {
-  document.body.classList.toggle('dark-theme');
+document.getElementById("toggle-theme").addEventListener("click", () => {
+  document.body.classList.toggle("dark-theme");
 
-  if (document.body.classList.contains('dark-theme')) {
-      localStorage.setItem('theme', 'dark');
-      document.getElementById('toggle-theme').innerText = "Toggle Light Theme"
+  if (document.body.classList.contains("dark-theme")) {
+    localStorage.setItem("theme", "dark");
+    document.getElementById("toggle-theme").innerText = "Toggle Light Theme";
   } else {
-      localStorage.setItem('theme', 'light');
-      document.getElementById('toggle-theme').innerText = "Toggle Dark Theme"
+    localStorage.setItem("theme", "light");
+    document.getElementById("toggle-theme").innerText = "Toggle Dark Theme";
   }
 });
 
 //getting user prefernce of theme
-if(localStorage.getItem("theme")==="dark"){
-  document.body.classList.add('dark-theme');
-  document.getElementById('toggle-theme').innerText = `Toggle Light Theme`
+if (localStorage.getItem("theme") === "dark") {
+  document.body.classList.add("dark-theme");
+  document.getElementById("toggle-theme").innerText = `Toggle Light Theme`;
+} else {
+  document.getElementById("toggle-theme").innerText = `Toggle Dark Theme`;
 }
-else{
-document.getElementById('toggle-theme').innerText = `Toggle Dark Theme`
-}
-
 
 // Task Reports functionality
 const taskCompletionChart = document.getElementById("task-completion-chart");

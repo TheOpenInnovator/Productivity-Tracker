@@ -668,3 +668,81 @@ textarea {
 #add-timer-task:hover {
   background: var(--green-gradient);
 }
+
+#timezone-select{
+  cursor:pointer;
+}
+#timezone-select option{
+  cursor:pointer;
+}
+
+
+.timezone-select {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  font-size: 1rem;
+  color: #333;
+  transition: all 0.3s ease;
+
+  outline: none;
+}
+
+
+
+/* Custom Scrollbar */
+.timezone-select::-webkit-scrollbar {
+  width: 8px;
+}
+
+.timezone-select::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+  border-radius: 10px;
+}
+
+.timezone-select::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.timezone-select::-webkit-scrollbar-thumb:hover {
+  background-color: #b4b2b2;
+}
+
+/* For Firefox */
+.timezone-select {
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
+}
+
+/* Hover and focus effects */
+.timezone-select:hover {
+  border-color: #a3a3a3;
+}
+
+.timezone-select:focus {
+  border-color: #457b9d;
+  box-shadow: 0 0 5px rgba(69, 123, 157, 0.5);
+}
+
+/* Animation for the dropdown */
+@keyframes dropdown-roll {
+  0% {
+    max-height: 0;
+    opacity: 0;
+  }
+  100% {
+    max-height: 500px; /* Adjust as per your content */
+    opacity: 1;
+  }
+}
+
+/* Apply the animation to the select box */
+.timezone-select {
+  max-height: 400px; /* Set max height to simulate roll-down */
+  overflow-y: auto; 
+  animation: dropdown-roll 0.5s ease-in-out;
+}
