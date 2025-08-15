@@ -372,19 +372,19 @@ document.getElementById("toggle-theme").addEventListener("click", () => {
 
   if (document.body.classList.contains("dark-theme")) {
     localStorage.setItem("theme", "dark");
-    document.getElementById("toggle-theme").innerText = "Toggle Light Theme";
+    document.getElementById("toggle-theme").innerHTML = '<i class="fas fa-sun"></i><span>Light Mode</span>';
   } else {
     localStorage.setItem("theme", "light");
-    document.getElementById("toggle-theme").innerText = "Toggle Dark Theme";
+    document.getElementById("toggle-theme").innerHTML = '<i class="fas fa-moon"></i><span>Dark Mode</span>';
   }
 });
 
-//getting user prefernce of theme
+// Getting user preference of theme
 if (localStorage.getItem("theme") === "dark") {
   document.body.classList.add("dark-theme");
-  document.getElementById("toggle-theme").innerText = `Toggle Light Theme`;
+  document.getElementById("toggle-theme").innerHTML = '<i class="fas fa-sun"></i><span>Light Mode</span>';
 } else {
-  document.getElementById("toggle-theme").innerText = `Toggle Dark Theme`;
+  document.getElementById("toggle-theme").innerHTML = '<i class="fas fa-moon"></i><span>Dark Mode</span>';
 }
 
 // Task Reports functionality

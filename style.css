@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 :root {
   --color-darkblue: #1e2749;
   --color-lightgray: #f5f6fa;
@@ -397,7 +398,7 @@ textarea {
   margin-top: 40px;
   padding-top: 30px;
   border-top: 2px solid var(--color-lightgray);
-}timer 
+}
 
 #pomodoro-display {
   font-size: 3em;
@@ -501,54 +502,423 @@ textarea {
   transition: width 0.4s ease;
 }
 
-.dark-theme {
-  background: linear-gradient(to right, #000000 0%, rgb(6, 0, 22) 100%);
-  color: var(--color-lightgray);
-}
-
-.dark-theme .section {
-  background-color: rgb(28, 28, 28);
-  color: var(--color-lightgray);
-}
-
-.dark-theme .modal-content{
-    background-color: #000000e3;
-}
-
-.dark-theme .timeline-item {
-  color: black;
-}
-.dark-theme h1,
-.dark-theme h2 {
-  color: var(--color-lightgray);
-}
-
-.dark-theme .progress-bar {
-  background-color: var(--color-lightgray);
-}
-
-.dark-theme .progress {
-  background: var(--color-gradient-dark);
-}
-
-.dark-theme #task-list li {
-  padding: 5px;
-  font-size: 0.9rem;
-  margin-bottom: 5px;
-  color: black;
-}
-
+/* Toggle theme button positioning */
 #toggle-theme {
   position: absolute;
   top: 20px;
   right: 20px;
-  padding: 10px 15px;
+  padding: 12px 20px;
   font-size: 0.9rem;
   background: var(--blue-gradient);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 140px;
+  justify-content: center;
+}
+
+#toggle-theme i {
+  font-size: 1rem;
+  transition: transform 0.3s ease;
 }
 
 #toggle-theme:hover {
   background: var(--color-gradient-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+#toggle-theme:hover i {
+  transform: rotate(15deg);
+}
+
+#toggle-theme span {
+  font-size: 0.8rem;
+}
+
+/* Clean Dark Mode Styles */
+.dark-theme {
+  background: #0f172a;
+  color: #f8fafc;
+}
+
+.dark-theme .container {
+  background: transparent;
+}
+
+.dark-theme .section {
+  background: #1e293b;
+  color: #f8fafc;
+  border: 1px solid #334155;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme .section:hover {
+  background: #334155;
+  border-color: #475569;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  transform: translateY(-2px);
+}
+
+.dark-theme h1,
+.dark-theme h2 {
+  color: #f8fafc;
+}
+
+.dark-theme h1::after,
+.dark-theme h2::after {
+  background: linear-gradient(90deg, #3b82f6, #10b981);
+}
+
+.dark-theme h3 {
+  color: #e2e8f0;
+}
+
+.dark-theme button {
+  background: #475569;
+  color: #f8fafc;
+  border: 1px solid #64748b;
+}
+
+.dark-theme button:hover {
+  background: #64748b;
+  border-color: #94a3b8;
+}
+
+.dark-theme #add-task,
+.dark-theme #start-pomodoro,
+.dark-theme #map-all,
+.dark-theme #start-timer,
+.dark-theme #add-log-task,
+.dark-theme #add-link,
+.dark-theme #add-more-link,
+.dark-theme #save-learning,
+.dark-theme .complete-task {
+  background: #059669;
+  border-color: #10b981;
+}
+
+.dark-theme #add-task:hover,
+.dark-theme #start-pomodoro:hover,
+.dark-theme #map-all:hover,
+.dark-theme #start-timer:hover,
+.dark-theme #add-log-task:hover,
+.dark-theme #add-link:hover,
+.dark-theme #add-more-link:hover,
+.dark-theme #save-learning:hover,
+.dark-theme .complete-task:hover {
+  background: #10b981;
+}
+
+.dark-theme #pause-timer,
+.dark-theme #custom-map,
+.dark-theme #map-timer-tasks,
+.dark-theme #map-log-tasks,
+.dark-theme #copy-links-tomorrow,
+.dark-theme #copy-links-week,
+.dark-theme #copy-links-next-week,
+.dark-theme #view-learnings,
+.dark-theme .edit-task {
+  background: #1d4ed8;
+  border-color: #3b82f6;
+}
+
+.dark-theme #pause-timer:hover,
+.dark-theme #custom-map:hover,
+.dark-theme #map-timer-tasks:hover,
+.dark-theme #map-log-tasks:hover,
+.dark-theme #copy-links-tomorrow:hover,
+.dark-theme #copy-links-week:hover,
+.dark-theme #copy-links-next-week:hover,
+.dark-theme #view-learnings:hover,
+.dark-theme .edit-task:hover {
+  background: #3b82f6;
+}
+
+.dark-theme #stop-timer,
+.dark-theme #reset-pomodoro,
+.dark-theme .delete-task {
+  background: #dc2626;
+  border-color: #ef4444;
+}
+
+.dark-theme #stop-timer:hover,
+.dark-theme #reset-pomodoro:hover,
+.dark-theme .delete-task:hover {
+  background: #ef4444;
+}
+
+.dark-theme input[type="text"],
+.dark-theme input[type="url"],
+.dark-theme input[type="time"],
+.dark-theme select,
+.dark-theme textarea {
+  background: #334155;
+  color: #f8fafc;
+  border: 1px solid #475569;
+}
+
+.dark-theme input[type="text"]:focus,
+.dark-theme input[type="url"]:focus,
+.dark-theme input[type="time"]:focus,
+.dark-theme select:focus,
+.dark-theme textarea:focus {
+  background: #475569;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+  outline: none;
+}
+
+.dark-theme input[type="text"]::placeholder,
+.dark-theme input[type="url"]::placeholder,
+.dark-theme input[type="time"]::placeholder,
+.dark-theme textarea::placeholder {
+  color: #94a3b8;
+}
+
+.dark-theme #clock {
+  background: #1e293b;
+  color: #f8fafc;
+  border: 1px solid #475569;
+}
+
+.dark-theme #clock h2 {
+  color: #f8fafc;
+}
+
+.dark-theme #task-list li {
+  background: #334155;
+  color: #f8fafc;
+  border: 1px solid #475569;
+}
+
+.dark-theme #task-list li:hover {
+  background: #475569;
+  border-color: #64748b;
+}
+
+.dark-theme #task-list li.completed {
+  background: #1e293b;
+  border-left-color: #10b981;
+}
+
+.dark-theme #task-list li.completed .task-text {
+  color: #94a3b8;
+}
+
+.dark-theme .timeline-item {
+  background: #334155;
+  color: #f8fafc;
+  border: 1px solid #475569;
+}
+
+.dark-theme .timeline-item:hover {
+  background: #475569;
+  border-color: #64748b;
+}
+
+.dark-theme #link-list li {
+  background: #334155;
+  color: #f8fafc;
+  border: 1px solid #475569;
+}
+
+.dark-theme #link-list li:hover {
+  background: #475569;
+  border-color: #64748b;
+}
+
+.dark-theme #link-list a {
+  color: #3b82f6;
+}
+
+.dark-theme #link-list a:hover {
+  color: #10b981;
+}
+
+.dark-theme .modal {
+  background-color: rgba(15, 23, 42, 0.9);
+}
+
+.dark-theme .modal-content {
+  background: #1e293b;
+  color: #f8fafc;
+  border: 1px solid #475569;
+}
+
+.dark-theme .modal-header {
+  color: #f8fafc;
+}
+
+.dark-theme .modal-body {
+  color: #e2e8f0;
+}
+
+.dark-theme #timer-display {
+  color: #f8fafc;
+}
+
+.dark-theme #timer-display.active {
+  color: #ef4444;
+}
+
+.dark-theme #pomodoro-display {
+  color: #f59e0b;
+}
+
+.dark-theme #task-completion-chart,
+.dark-theme #time-spent-chart {
+  background: #1e293b;
+  border: 1px solid #475569;
+}
+
+.dark-theme .progress-bar {
+  background: #334155;
+  border: 1px solid #475569;
+}
+
+.dark-theme .progress {
+  background: #10b981;
+}
+
+.dark-theme #toggle-theme {
+  background: linear-gradient(135deg, #3b82f6, #10b981);
+  color: #f8fafc;
+  border: 1px solid #475569;
+}
+
+.dark-theme #toggle-theme:hover {
+  background: linear-gradient(135deg, #10b981, #3b82f6);
+}
+
+.dark-theme .timezone-select {
+  background: #334155;
+  color: #f8fafc;
+  border: 1px solid #475569;
+}
+
+.dark-theme .timezone-select:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.dark-theme .timezone-select option {
+  background: #1e293b;
+  color: #f8fafc;
+}
+
+/* Dark mode scrollbar */
+.dark-theme ::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dark-theme ::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+.dark-theme ::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 4px;
+}
+
+.dark-theme ::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* Dark mode focus indicators */
+.dark-theme *:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Dark mode selection */
+.dark-theme ::selection {
+  background: #3b82f6;
+  color: #f8fafc;
+}
+
+.dark-theme ::-moz-selection {
+  background: #3b82f6;
+  color: #f8fafc;
+}
+
+/* Dark mode transitions */
+.dark-theme * {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Dark mode button states */
+.dark-theme button:active {
+  transform: translateY(1px);
+}
+
+/* Dark mode input validation */
+.dark-theme input:invalid {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+}
+
+/* Dark mode enhanced task list */
+.dark-theme #task-list li .task-category {
+  color: #10b981;
+  font-weight: 500;
+}
+
+.dark-theme #task-list li .task-control button {
+  margin: 0 2px;
+  padding: 6px 10px;
+  font-size: 0.8rem;
+  min-width: auto;
+}
+
+/* Dark mode clock display */
+.dark-theme #current-time {
+  color: #e2e8f0;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+/* Dark mode progress bar */
+.dark-theme .progress-bar {
+  position: relative;
+  overflow: hidden;
+}
+
+.dark-theme .progress::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Dark mode enhanced hover effects */
+.dark-theme .section:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Dark mode enhanced button hover effects */
+.dark-theme button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
 @media (max-width: 1030px) {
@@ -676,7 +1046,6 @@ textarea {
   cursor:pointer;
 }
 
-
 .timezone-select {
   width: 100%;
   padding: 12px 15px;
@@ -686,11 +1055,8 @@ textarea {
   font-size: 1rem;
   color: #333;
   transition: all 0.3s ease;
-
   outline: none;
 }
-
-
 
 /* Custom Scrollbar */
 .timezone-select::-webkit-scrollbar {
